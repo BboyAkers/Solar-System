@@ -1,128 +1,13 @@
-/// <reference path="babylon.2.1.d.ts" />
+/// <reference path="babylon.2.4.d.ts" />
 
 var BjsApp = BjsApp || {};
 
-BjsApp.init = function(){
-	//get the canvas
-	var canvas = document.getElementById('renderCanvas');
-	
-	//create a BabylonJS engine object
-	var engine = new BABYLON.Engine(canvas, true);
-	
-	//create scene
-	var scene = new BABYLON.Scene(engine);
+BjsApp.init = function () {
 
-	//create camera
-	var camera = new BABYLON.FreeCamera('FreeCamera', new BABYLON.Vector3(0, 2, -15), scene);
-	
-	camera.attachControl(canvas);
-	
-	//light environment light(coming from above)
-	var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
+    var canvas = document.getElementById('renderCanvas');
 
-	var ground = BABYLON.Mesh.CreateGround('ground1', 20, 20, 2, scene);
-
-	var grass = new BABYLON.StandardMaterial('grass', scene);
-	grass.diffuseTexture = new BABYLON.Texture('assets/images/grass.png', scene);
-	grass.diffuseTexture.uScale = 10;
-	grass.diffuseTexture.vScale = 10;
-
-	ground.material = grass;
-
-	//create a sphere
-	var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene);
-	sphere.position.y = 1;
-
-	//create box
-	var box = BABYLON.Mesh.CreateBox('box',scene);
-	box.position = new BABYLON.Vector3(10, 3 , -4);
-	box.scaling.y = 2;
-
-	box.rotation.x = 45;
-
-	var sphere2 = BABYLON.Mesh.CreateSphere('sphere2', 26, 4, scene);
-	sphere2.position = new BABYLON.Vector3(3, 3, 3);
-	sphere2.scaling = new BABYLON.Vector3(1, 0.5, 0.5);
-
-	var sphereMaterial = new BABYLON.StandardMaterial('sphereMat', scene);
-	sphereMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
-	sphereMaterial.alpha = 0.5;
-
-	sphere2.material = sphereMaterial;
+    var engine = new BABYLON.Engine(canvas, true)
 
 
-	//create box
-	var box = BABYLON.Mesh.CreateBox('box', 1, scene);
-	box.position = new BABYLON.Vector3(10, 3 , -4);
-	box.scaling.y = 2;
-
-	box.rotation.x = 45;
-
-	box.material = sphereMaterial;
-
-	var cylinder = BABYLON.Mesh.CreateCylinder('cyl', 5, 1, 3, 16, scene);
-	cylinder.position = new BABYLON.Vector3(4, 4, 4);
-
-	var lines = BABYLON.Mesh.CreateLines('lines', [
-		new BABYLON.Vector3(0, 5, 0),
-		new BABYLON.Vector3(1, 5, 0),
-		new BABYLON.Vector3(0, 5, 1),
-		new BABYLON.Vector3(0, 2, 0),
-		new BABYLON.Vector3(1, 5, 0)
-		], scene);
-	var box2 = BABYLON.Mesh.CreateBox('box2', scene);
-	box2.position = new BABYLON.Vector3(2, 2, 2);
-	  var sun = BABYLON.Mesh.CreateSphere('sun', 16, 4, scene);
-  var sunMaterial = new BABYLON.StandardMaterial('sunMaterial', scene);
-  sunMaterial.emissiveTexture = new BABYLON.Texture('assets/images/sun.jpg', scene);
-  sunMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-  sunMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-  
-  sun.material = sunMaterial;
-  
-  //sun light
-  var sunLight = new BABYLON.PointLight('sunLight', BABYLON.Vector3.Zero(), scene);
-  sunLight.intensity = 2;
-  
-  
-  //planets
-  var planetMaterial = new BABYLON.StandardMaterial('planetMat', scene);
-  planetMaterial.diffuseTexture = new BABYLON.Texture('assets/images/sand.jpg', scene);
-  planetMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-  
-  var planet1 = BABYLON.Mesh.CreateSphere('planet1', 16, 1, scene);
-  planet1.position.x = 4;
-  planet1.material = planetMaterial;
- 
-  //skybox
-  var skybox = BABYLON.Mesh.CreateBox('skybox', 1000, scene);
-  var skyboxMaterial = new BABYLON.StandardMaterial('skyboxMat', scene);
-  
-  //dont render what we cant see
-  skyboxMaterial.backFaceCulling = false;
-  
-  //move with camera
-  skybox.infiniteDistance = true;
-  
-  skybox.material = skyboxMaterial;
-  
-  //remove reflection in skybox
-  skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-  skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-  
-  //texture of 6 sides of the cube
-  skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('assets/images/skybox', scene);
-  skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-
-	engine.runRenderLoop(function(){
-		scene.render();
-	});
-
-	//listen for resize event
-	window.addEventListener('resize', function(){
-		engine.resize();
-	});
-
+    var scene = new BABYLON.Scene(engine);
 };
-//http://www.babylonjs-playground.com/
-http://doc.babylonjs.com/generals/A_Babylon.js_Primer
