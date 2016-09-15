@@ -1,72 +1,207 @@
-/// <reference path="babylon.2.4.d.ts" />
+/// <reference path="babylon.2.1.d.ts" />
 
 var BjsApp = BjsApp || {};
 
-BjsApp.init = function () {
-
+BjsApp.init = function(){
+    //get the canvas
     var canvas = document.getElementById('renderCanvas');
 
-    //Create engine object
+    //create a BabylonJS engine object, true for antialias
     var engine = new BABYLON.Engine(canvas, true);
 
-    //Create Scene
+    //create a scene
     var scene = new BABYLON.Scene(engine);
 
-    //Create Camera
-    var camera = new BABYLON.FreeCamera('FreeCamera', new BABYLON.Vector3(0, 2, -15), scene);
+    //create a camera
+    var camera = new BABYLON.ArcRotateCamera('camera', 0, 0, 15, BABYLON.Vector3.Zero(), scene);
 
+    //let the user move the camera
     camera.attachControl(canvas);
 
-    //Light environment
-    var light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(0, 1, 0), scene);
+    camera.upperRadiusLimit = 50;
+
+    //light
+    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
+    light.intensity = 0.5;
+    light.groundColor = new BABYLON.Color3(0, 0, 1);
+
+    scene.clearColor = new BABYLON.Color3(0,0,0);
 
 
-    //Create ground
-    var ground = BABYLON.Mesh.CreateGround('ground1', 20, 20, 2, scene);
+    //Add materials
+    var sunMaterial = new BABYLON.StandardMaterial('sunMaterial', scene);
+    sunMaterial.emissiveTexture = new BABYLON.Texture('assets/images/sun.jpg', scene);
+    sunMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    sunMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var grass = new BABYLON.StandardMaterial('grass', scene);
-    grass.diffuseTexture
-
-    //Create a sphere
-    var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene);
-    sphere.position.y = 1;
-
-    var sphere2 = BABYLON.Mesh.CreateSphere('sphere2', 16, 4, scene);
-    sphere2.position = new BABYLON.Vector3(3, 3, 3);
-
-    var sphereMaterial = new BABYLON.StandardMaterial('sphereMat', scene);
-    sphereMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
-    sphereMaterial.alpha = 0.5;
-
-    sphere2.material = sphereMaterial;
-
-    //Create box
-    var box = BABYLON.Mesh.CreateBox('box', 1 , scene);
-    box.position = new BABYLON.Vector3(6, 2, 10);
-    box.scaling.y = 2;
-
-    box.material = sphereMaterial;
-
-    box.rotation.x = 45;
+    var planetMaterial = new BABYLON.StandardMaterial('planetMat', scene);
+    planetMaterial.diffuseTexture = new BABYLON.Texture('assets/images/sand.jpg', scene);
+    planetMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
 
-    var cylinder = BABYLON.Mesh.CreateCylinder('cyl', 5, 1, 3, 16, scene);
 
-    var lines = BABYLON.Mesh.CreateLines('lines', [
-        new BABYLON.Vector3(0, 5, 0),
-        new BABYLON.Vector3(1, 5, 0),
-        new BABYLON.Vector3(0, 5, 1),
-        new BABYLON.Vector3(2, 2, 0),
-        new BABYLON.Vector3(1, 5, -5)
-    ],scene);
 
-    //render scene
+    //sun light
+    var sunLight = new BABYLON.PointLight('sunLight', BABYLON.Vector3.Zero(), scene);
+    sunLight.intensity = 2;
+
+
+
+    //Create planets
+    var sun = BABYLON.Mesh.CreateSphere('sun', 16, 4, scene);
+    sun.material = sunMaterial;
+
+    var mercury = BABYLON.Mesh.CreateSphere('mercury', 16, 1, scene);
+    mercury.position.x = 4;
+    mercury.material = planetMaterial;
+    mercury.orbit = {
+        radius: mercury.position.x,
+        speed: 0.03,
+        angle: 0
+    };
+
+    var venus = BABYLON.Mesh.CreateSphere('venus', 16, 1.5, scene);
+    venus.position.x = 6.5;
+    venus.material = planetMaterial;
+    venus.orbit = {
+        radius: venus.position.x,
+        speed: 0.01,
+        angle: 0
+    };
+
+    var earth = BABYLON.Mesh.CreateSphere('earth', 16, 2.5, scene);
+    earth.position.x = 10;
+    earth.material = planetMaterial;
+    earth.orbit = {
+        radius: earth.position.x,
+        speed: 0.015,
+        angle: 0
+    };
+
+    var mars = BABYLON.Mesh.CreateSphere('mars', 16, 1, scene);
+    mars.position.x = 14;
+    mars.material = planetMaterial;
+    mars.orbit = {
+        radius: mars.position.x,
+        speed: 0.017,
+        angle: 0
+    };
+
+    var jupiter = BABYLON.Mesh.CreateSphere('jupiter', 16, 4, scene);
+    jupiter.position.x = 19;
+    jupiter.material = planetMaterial;
+    jupiter.orbit = {
+        radius: jupiter.position.x,
+        speed: 0.005,
+        angle: 0
+    };
+
+    var saturn = BABYLON.Mesh.CreateSphere('saturn', 14, 4, scene);
+    saturn.position.x = 26;
+    saturn.material = planetMaterial;
+    saturn.orbit = {
+        radius: saturn.position.x,
+        speed: 0.002,
+        angle: 0
+    };
+
+    var uranus = BABYLON.Mesh.CreateSphere('uranus', 17, 4, scene);
+    uranus.position.x = 26;
+    uranus.material = planetMaterial;
+    uranus.orbit = {
+        radius: uranus.position.x,
+        speed: 0.011,
+        angle: 0
+    };
+
+    var neptune = BABYLON.Mesh.CreateSphere('neptune', 16, 4, scene);
+    neptune.position.x = 32;
+    neptune.material = planetMaterial;
+    neptune.orbit = {
+        radius: neptune.position.x,
+        speed: 0.009,
+        angle: 0
+    };
+
+    var pluto = BABYLON.Mesh.CreateSphere('pluto', 16, 0.5, scene);
+    pluto.position.x = 36;
+    pluto.material = planetMaterial;
+    pluto.orbit = {
+        radius: pluto.position.x,
+        speed: 0.007,
+        angle: 0
+    };
+
+    //skybox
+    var skybox = BABYLON.Mesh.CreateBox('skybox', 1000, scene);
+    var skyboxMaterial = new BABYLON.StandardMaterial('skyboxMat', scene);
+
+    //Dont render what cant be seen
+    skyboxMaterial.backFaceCulling = false;
+
+    //move with camera
+    skybox.infiniteDistance = true;
+
+    skybox.material = skyboxMaterial;
+
+    //remove reflection in skybox
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+    //texture of 6 sides of the cube
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('assets/images/skybox', scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+
+    //thing method allows you to animate / move things
+    scene.beforeRender = function() {
+        mercury.position.x = mercury.orbit.radius * Math.sin(mercury.orbit.angle);
+        mercury.position.z = mercury.orbit.radius * Math.cos(mercury.orbit.angle);
+        mercury.orbit.angle += mercury.orbit.speed;
+
+        venus.position.x = venus.orbit.radius * Math.sin(venus.orbit.angle);
+        venus.position.z = venus.orbit.radius * Math.cos(venus.orbit.angle);
+        venus.orbit.angle += venus.orbit.speed;
+
+        earth.position.x = earth.orbit.radius * Math.sin(earth.orbit.angle);
+        earth.position.z = earth.orbit.radius * Math.cos(earth.orbit.angle);
+        earth.orbit.angle += earth.orbit.speed;
+
+        mars.position.x = mars.orbit.radius * Math.sin(mars.orbit.angle);
+        mars.position.z = mars.orbit.radius * Math.cos(mars.orbit.angle);
+        mars.orbit.angle += mars.orbit.speed;
+
+
+        jupiter.position.x = jupiter.orbit.radius * Math.sin(jupiter.orbit.angle);
+        jupiter.position.z = jupiter.orbit.radius * Math.cos(jupiter.orbit.angle);
+        jupiter.orbit.angle += jupiter.orbit.speed;
+
+        saturn.position.x = saturn.orbit.radius * Math.sin(saturn.orbit.angle);
+        saturn.position.z = saturn.orbit.radius * Math.cos(saturn.orbit.angle);
+        saturn.orbit.angle += saturn.orbit.speed;
+
+        saturn.position.x = saturn.orbit.radius * Math.sin(saturn.orbit.angle);
+        saturn.position.z = saturn.orbit.radius * Math.cos(saturn.orbit.angle);
+        saturn.orbit.angle += saturn.orbit.speed;
+
+        uranus.position.x = uranus.orbit.radius * Math.sin(uranus.orbit.angle);
+        uranus.position.z = uranus.orbit.radius * Math.cos(uranus.orbit.angle);
+        uranus.orbit.angle += uranus.orbit.speed;
+
+        neptune.position.x = neptune.orbit.radius * Math.sin(neptune.orbit.angle);
+        neptune.position.z = neptune.orbit.radius * Math.cos(neptune.orbit.angle);
+        neptune.orbit.angle += neptune.orbit.speed;
+
+        pluto.position.x = pluto.orbit.radius * Math.sin(pluto.orbit.angle);
+        pluto.position.z = pluto.orbit.radius * Math.cos(pluto.orbit.angle);
+        pluto.orbit.angle += pluto.orbit.speed;
+    };
+
     engine.runRenderLoop(function () {
         scene.render();
     });
 
-    //listen for resize event
-    window.addEventListener('resize', function () {
+    // the canvas/window resize event handler
+    window.addEventListener('resize', function(){
         engine.resize();
-    })
+    });
 };
