@@ -18,7 +18,7 @@ BjsApp.init = function(){
     //let the user move the camera
     camera.attachControl(canvas);
 
-    camera.upperRadiusLimit = 50;
+    camera.upperRadiusLimit = 75;
 
     //light
     var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
@@ -74,11 +74,11 @@ BjsApp.init = function(){
 
 
     //Create planets
-    var sun = BABYLON.Mesh.CreateSphere('sun', 16, 4, scene);
+    var sun = BABYLON.Mesh.CreateSphere('sun', 16, 8, scene);
     sun.material = sunMaterial;
 
     var mercury = BABYLON.Mesh.CreateSphere('mercury', 16, 1, scene);
-    mercury.position.x = 4;
+    mercury.position.x = 6;
     mercury.material = mercuryMaterial;
     mercury.orbit = {
         radius: mercury.position.x,
@@ -87,7 +87,7 @@ BjsApp.init = function(){
     };
 
     var venus = BABYLON.Mesh.CreateSphere('venus', 16, 1.5, scene);
-    venus.position.x = 6.5;
+    venus.position.x = 8.5;
     venus.material = venusMaterial;
     venus.orbit = {
         radius: venus.position.x,
@@ -96,7 +96,7 @@ BjsApp.init = function(){
     };
 
     var earth = BABYLON.Mesh.CreateSphere('earth', 16, 2.5, scene);
-    earth.position.x = 10;
+    earth.position.x = 12;
     earth.material = earthMaterial;
     earth.orbit = {
         radius: earth.position.x,
@@ -105,7 +105,7 @@ BjsApp.init = function(){
     };
 
     var mars = BABYLON.Mesh.CreateSphere('mars', 16, 1, scene);
-    mars.position.x = 14;
+    mars.position.x = 16;
     mars.material = marsMaterial;
     mars.orbit = {
         radius: mars.position.x,
@@ -114,7 +114,7 @@ BjsApp.init = function(){
     };
 
     var jupiter = BABYLON.Mesh.CreateSphere('jupiter', 16, 4, scene);
-    jupiter.position.x = 19;
+    jupiter.position.x = 21;
     jupiter.material = jupiterMaterial;
     jupiter.orbit = {
         radius: jupiter.position.x,
@@ -123,7 +123,7 @@ BjsApp.init = function(){
     };
 
     var saturn = BABYLON.Mesh.CreateSphere('saturn', 14, 4, scene);
-    saturn.position.x = 26;
+    saturn.position.x = 28;
     saturn.material = saturnMaterial;
     saturn.orbit = {
         radius: saturn.position.x,
@@ -132,7 +132,7 @@ BjsApp.init = function(){
     };
 
     var uranus = BABYLON.Mesh.CreateSphere('uranus', 17, 4, scene);
-    uranus.position.x = 26;
+    uranus.position.x = 32;
     uranus.material = uranusMaterial;
     uranus.orbit = {
         radius: uranus.position.x,
@@ -141,7 +141,7 @@ BjsApp.init = function(){
     };
 
     var neptune = BABYLON.Mesh.CreateSphere('neptune', 16, 4, scene);
-    neptune.position.x = 32;
+    neptune.position.x = 36;
     neptune.material = neptuneMaterial;
     neptune.orbit = {
         radius: neptune.position.x,
@@ -150,7 +150,7 @@ BjsApp.init = function(){
     };
 
     var pluto = BABYLON.Mesh.CreateSphere('pluto', 16, 0.5, scene);
-    pluto.position.x = 36;
+    pluto.position.x = 40;
     pluto.material = mercuryMaterial;
     pluto.orbit = {
         radius: pluto.position.x,

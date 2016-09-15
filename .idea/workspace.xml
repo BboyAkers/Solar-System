@@ -39,28 +39,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="153" column="28" selection-start-line="153" selection-start-column="28" selection-end-line="153" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Downloads/frameworks&amp;courses/course lectures/12 orbiting planet/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Downloads/frameworks&amp;courses/course lectures/10 shining star/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="27" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="902">
+              <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -203,12 +183,12 @@
       <option name="presentableId" value="Default" />
       <updated>1473834271641</updated>
       <workItem from="1473834273605" duration="1958000" />
-      <workItem from="1473879379364" duration="20150000" />
+      <workItem from="1473879379364" duration="20488000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22108000" />
+    <option name="totallyTimeSpent" value="22446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-9" width="2418" height="1318" extended-state="6" />
@@ -280,14 +260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Downloads/frameworks&amp;courses/course lectures/10 shining star/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="27" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Downloads/frameworks&amp;courses/course lectures/12 orbiting planet/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -296,10 +268,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Downloads/frameworks&amp;courses/course lectures/10 shining star/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="27" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="153" column="28" selection-start-line="153" selection-start-column="28" selection-end-line="153" selection-end-column="28" />
+        <state relative-caret-position="902">
+          <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
           <folding />
         </state>
       </provider>
