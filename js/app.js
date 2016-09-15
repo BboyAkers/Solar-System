@@ -18,7 +18,7 @@ BjsApp.init = function(){
     //let the user move the camera
     camera.attachControl(canvas);
 
-    camera.upperRadiusLimit = 75;
+    //camera.upperRadiusLimit = 75;
 
     //light
     var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
