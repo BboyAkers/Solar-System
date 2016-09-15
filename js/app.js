@@ -30,15 +30,41 @@ BjsApp.init = function(){
 
     //Add materials
     var sunMaterial = new BABYLON.StandardMaterial('sunMaterial', scene);
-    sunMaterial.emissiveTexture = new BABYLON.Texture('assets/images/sun.jpg', scene);
+    sunMaterial.emissiveTexture = new BABYLON.Texture('assets/images/texture_sun.jpg', scene);
     sunMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
     sunMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var planetMaterial = new BABYLON.StandardMaterial('planetMat', scene);
-    planetMaterial.diffuseTexture = new BABYLON.Texture('assets/images/sand.jpg', scene);
-    planetMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    var mercuryMaterial = new BABYLON.StandardMaterial('mercuryMat', scene);
+    mercuryMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_mercury.jpg', scene);
+    mercuryMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
+    var venusMaterial = new BABYLON.StandardMaterial('venusMat', scene);
+    venusMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_venus_surface.jpg', scene);
+    venusMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
+    var earthMaterial = new BABYLON.StandardMaterial('earthMat', scene);
+    earthMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_earth_surface.jpg', scene);
+    earthMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+    var marsMaterial = new BABYLON.StandardMaterial('marsMat', scene);
+    marsMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_mars.jpg', scene);
+    marsMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+    var jupiterMaterial = new BABYLON.StandardMaterial('jupiterMat', scene);
+    jupiterMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_jupiter.jpg', scene);
+    jupiterMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+    var saturnMaterial = new BABYLON.StandardMaterial('saturnMat', scene);
+    saturnMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_saturn.jpg', scene);
+    saturnMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+    var uranusMaterial = new BABYLON.StandardMaterial('uranusMat', scene);
+    uranusMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_uranus.jpg', scene);
+    uranusMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+
+    var neptuneMaterial = new BABYLON.StandardMaterial('neptuneMat', scene);
+    neptuneMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_neptune.jpg', scene);
+    neptuneMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
 
     //sun light
@@ -53,7 +79,7 @@ BjsApp.init = function(){
 
     var mercury = BABYLON.Mesh.CreateSphere('mercury', 16, 1, scene);
     mercury.position.x = 4;
-    mercury.material = planetMaterial;
+    mercury.material = mercuryMaterial;
     mercury.orbit = {
         radius: mercury.position.x,
         speed: 0.03,
@@ -62,7 +88,7 @@ BjsApp.init = function(){
 
     var venus = BABYLON.Mesh.CreateSphere('venus', 16, 1.5, scene);
     venus.position.x = 6.5;
-    venus.material = planetMaterial;
+    venus.material = venusMaterial;
     venus.orbit = {
         radius: venus.position.x,
         speed: 0.01,
@@ -71,7 +97,7 @@ BjsApp.init = function(){
 
     var earth = BABYLON.Mesh.CreateSphere('earth', 16, 2.5, scene);
     earth.position.x = 10;
-    earth.material = planetMaterial;
+    earth.material = earthMaterial;
     earth.orbit = {
         radius: earth.position.x,
         speed: 0.015,
@@ -80,7 +106,7 @@ BjsApp.init = function(){
 
     var mars = BABYLON.Mesh.CreateSphere('mars', 16, 1, scene);
     mars.position.x = 14;
-    mars.material = planetMaterial;
+    mars.material = marsMaterial;
     mars.orbit = {
         radius: mars.position.x,
         speed: 0.017,
@@ -89,7 +115,7 @@ BjsApp.init = function(){
 
     var jupiter = BABYLON.Mesh.CreateSphere('jupiter', 16, 4, scene);
     jupiter.position.x = 19;
-    jupiter.material = planetMaterial;
+    jupiter.material = jupiterMaterial;
     jupiter.orbit = {
         radius: jupiter.position.x,
         speed: 0.005,
@@ -98,7 +124,7 @@ BjsApp.init = function(){
 
     var saturn = BABYLON.Mesh.CreateSphere('saturn', 14, 4, scene);
     saturn.position.x = 26;
-    saturn.material = planetMaterial;
+    saturn.material = saturnMaterial;
     saturn.orbit = {
         radius: saturn.position.x,
         speed: 0.002,
@@ -107,7 +133,7 @@ BjsApp.init = function(){
 
     var uranus = BABYLON.Mesh.CreateSphere('uranus', 17, 4, scene);
     uranus.position.x = 26;
-    uranus.material = planetMaterial;
+    uranus.material = uranusMaterial;
     uranus.orbit = {
         radius: uranus.position.x,
         speed: 0.011,
@@ -116,7 +142,7 @@ BjsApp.init = function(){
 
     var neptune = BABYLON.Mesh.CreateSphere('neptune', 16, 4, scene);
     neptune.position.x = 32;
-    neptune.material = planetMaterial;
+    neptune.material = neptuneMaterial;
     neptune.orbit = {
         radius: neptune.position.x,
         speed: 0.009,
@@ -125,7 +151,7 @@ BjsApp.init = function(){
 
     var pluto = BABYLON.Mesh.CreateSphere('pluto', 16, 0.5, scene);
     pluto.position.x = 36;
-    pluto.material = planetMaterial;
+    pluto.material = mercuryMaterial;
     pluto.orbit = {
         radius: pluto.position.x,
         speed: 0.007,
