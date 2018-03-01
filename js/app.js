@@ -1,5 +1,4 @@
-/// <reference path="babylon.2.1.d.ts" />
-
+// <reference path="babylon.2.1.d.ts" />
 var BjsApp = BjsApp || {};
 
 BjsApp.init = function(){
@@ -66,8 +65,7 @@ BjsApp.init = function(){
     neptuneMaterial.diffuseTexture = new BABYLON.Texture('assets/images/texture_neptune.jpg', scene);
     neptuneMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-
-    //sun light
+    
     var sunLight = new BABYLON.PointLight('sunLight', BABYLON.Vector3.Zero(), scene);
     sunLight.intensity = 2;
 
