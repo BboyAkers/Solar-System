@@ -1,26 +1,22 @@
-// <reference path="babylon.2.1.d.ts" />
-var BjsApp = BjsApp || {};
 
-BjsApp.init = function(){
+window.addEventListener('DOMContentLoaded', () => {
     //get the canvas
-    var canvas = document.getElementById('renderCanvas');
+    const canvas = document.getElementById('renderCanvas');
 
     //create a BabylonJS engine object, true for antialias
-    var engine = new BABYLON.Engine(canvas, true);
+    const engine = new BABYLON.Engine(canvas, true);
 
     //create a scene
-    var scene = new BABYLON.Scene(engine);
+    const scene = new BABYLON.Scene(engine);
 
     //create a camera
-    var camera = new BABYLON.ArcRotateCamera('Camera', 1.2, 1.1, 60, BABYLON.Vector3.Zero(), scene);
+    const camera = new BABYLON.ArcRotateCamera('Camera', 1.2, 1.1, 60, BABYLON.Vector3.Zero(), scene);
 
-    //let the user move the camera
+    //const the user move the camera
     camera.attachControl(canvas);
 
-    //camera.upperRadiusLimit = 75;
-
     //light
-    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
+    const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
     light.intensity = 0.5;
     light.groundColor = new BABYLON.Color3(0, 0, 1);
 
@@ -28,54 +24,54 @@ BjsApp.init = function(){
 
 
     //Add materials
-    var sunMaterial = new BABYLON.StandardMaterial('sunMaterial', scene);
+    const sunMaterial = new BABYLON.StandardMaterial('sunMaterial', scene);
     sunMaterial.emissiveTexture = new BABYLON.Texture('assets/images/601x301_texture_sun.jpg', scene);
     sunMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
     sunMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var mercuryMaterial = new BABYLON.StandardMaterial('mercuryMat', scene);
+    const mercuryMaterial = new BABYLON.StandardMaterial('mercuryMat', scene);
     mercuryMaterial.diffuseTexture = new BABYLON.Texture('assets/images/500x250_mercury.jpg', scene);
     mercuryMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var venusMaterial = new BABYLON.StandardMaterial('venusMat', scene);
+    const venusMaterial = new BABYLON.StandardMaterial('venusMat', scene);
     venusMaterial.diffuseTexture = new BABYLON.Texture('assets/images/500x250_texture_venus_surface.jpg', scene);
     venusMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var earthMaterial = new BABYLON.StandardMaterial('earthMat', scene);
+    const earthMaterial = new BABYLON.StandardMaterial('earthMat', scene);
     earthMaterial.diffuseTexture = new BABYLON.Texture('assets/images/601x301_texture_earth_surface.jpg', scene);
     earthMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var marsMaterial = new BABYLON.StandardMaterial('marsMat', scene);
+    const marsMaterial = new BABYLON.StandardMaterial('marsMat', scene);
     marsMaterial.diffuseTexture = new BABYLON.Texture('assets/images/400x200_texture_mars.jpg', scene);
     marsMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var jupiterMaterial = new BABYLON.StandardMaterial('jupiterMat', scene);
+    const jupiterMaterial = new BABYLON.StandardMaterial('jupiterMat', scene);
     jupiterMaterial.diffuseTexture = new BABYLON.Texture('assets/images/500x250_texture_jupiter.jpg', scene);
     jupiterMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var saturnMaterial = new BABYLON.StandardMaterial('saturnMat', scene);
+    const saturnMaterial = new BABYLON.StandardMaterial('saturnMat', scene);
     saturnMaterial.diffuseTexture = new BABYLON.Texture('assets/images/601x301_texture_saturn.jpg', scene);
     saturnMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var uranusMaterial = new BABYLON.StandardMaterial('uranusMat', scene);
+    const uranusMaterial = new BABYLON.StandardMaterial('uranusMat', scene);
     uranusMaterial.diffuseTexture = new BABYLON.Texture('assets/images/400x200_texture_uranus.jpg', scene);
     uranusMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    var neptuneMaterial = new BABYLON.StandardMaterial('neptuneMat', scene);
+    const neptuneMaterial = new BABYLON.StandardMaterial('neptuneMat', scene);
     neptuneMaterial.diffuseTexture = new BABYLON.Texture('assets/images/400x200_texture_neptune.jpg', scene);
     neptuneMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     
-    var sunLight = new BABYLON.PointLight('sunLight', BABYLON.Vector3.Zero(), scene);
+    const sunLight = new BABYLON.PointLight('sunLight', BABYLON.Vector3.Zero(), scene);
     sunLight.intensity = 2;
 
 
 
     //Create planets
-    var sun = BABYLON.Mesh.CreateSphere('sun', 16, 8, scene);
+    const sun = BABYLON.Mesh.CreateSphere('sun', 16, 8, scene);
     sun.material = sunMaterial;
 
-    var mercury = BABYLON.Mesh.CreateSphere('mercury', 16, 1, scene);
+    const mercury = BABYLON.Mesh.CreateSphere('mercury', 16, 1, scene);
     mercury.position.x = 6;
     mercury.material = mercuryMaterial;
     mercury.orbit = {
@@ -84,7 +80,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var venus = BABYLON.Mesh.CreateSphere('venus', 16, 1.5, scene);
+    const venus = BABYLON.Mesh.CreateSphere('venus', 16, 1.5, scene);
     venus.position.x = 8.5;
     venus.material = venusMaterial;
     venus.orbit = {
@@ -93,7 +89,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var earth = BABYLON.Mesh.CreateSphere('earth', 16, 2.5, scene);
+    const earth = BABYLON.Mesh.CreateSphere('earth', 16, 2.5, scene);
     earth.position.x = 12;
     earth.material = earthMaterial;
     earth.orbit = {
@@ -102,7 +98,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var mars = BABYLON.Mesh.CreateSphere('mars', 16, 1, scene);
+    const mars = BABYLON.Mesh.CreateSphere('mars', 16, 1, scene);
     mars.position.x = 16;
     mars.material = marsMaterial;
     mars.orbit = {
@@ -111,7 +107,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var jupiter = BABYLON.Mesh.CreateSphere('jupiter', 16, 4, scene);
+    const jupiter = BABYLON.Mesh.CreateSphere('jupiter', 16, 4, scene);
     jupiter.position.x = 21;
     jupiter.material = jupiterMaterial;
     jupiter.orbit = {
@@ -120,7 +116,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var saturn = BABYLON.Mesh.CreateSphere('saturn', 14, 4, scene);
+    const saturn = BABYLON.Mesh.CreateSphere('saturn', 14, 4, scene);
     saturn.position.x = 28;
     saturn.material = saturnMaterial;
     saturn.orbit = {
@@ -129,7 +125,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var uranus = BABYLON.Mesh.CreateSphere('uranus', 17, 4, scene);
+    const uranus = BABYLON.Mesh.CreateSphere('uranus', 17, 4, scene);
     uranus.position.x = 32;
     uranus.material = uranusMaterial;
     uranus.orbit = {
@@ -138,7 +134,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var neptune = BABYLON.Mesh.CreateSphere('neptune', 16, 4, scene);
+    const neptune = BABYLON.Mesh.CreateSphere('neptune', 16, 4, scene);
     neptune.position.x = 36;
     neptune.material = neptuneMaterial;
     neptune.orbit = {
@@ -147,7 +143,7 @@ BjsApp.init = function(){
         angle: 0
     };
 
-    var pluto = BABYLON.Mesh.CreateSphere('pluto', 16, 0.5, scene);
+    const pluto = BABYLON.Mesh.CreateSphere('pluto', 16, 0.5, scene);
     pluto.position.x = 40;
     pluto.material = mercuryMaterial;
     pluto.orbit = {
@@ -157,8 +153,8 @@ BjsApp.init = function(){
     };
 
     //skybox
-    var skybox = BABYLON.Mesh.CreateBox('skybox', 1000, scene);
-    var skyboxMaterial = new BABYLON.StandardMaterial('skyboxMat', scene);
+    const skybox = BABYLON.Mesh.CreateBox('skybox', 1000, scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial('skyboxMat', scene);
 
     //Dont render what cant be seen
     skyboxMaterial.backFaceCulling = false;
@@ -228,4 +224,4 @@ BjsApp.init = function(){
     window.addEventListener('resize', function(){
         engine.resize();
     });
-};
+})
