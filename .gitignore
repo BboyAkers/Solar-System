@@ -1,9 +1,13 @@
+node_modules
+dist
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
 
 # Folder config file
 Desktop.ini
+.history
+.parcel-cache
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
