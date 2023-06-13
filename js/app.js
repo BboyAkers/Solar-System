@@ -169,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     //texture of 6 sides of the cube
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/dcad501c-d635-4b6a-d81b-5c8239775800/public', scene);
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('assets/images/skybox', scene);
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
     //thing method allows you to animate / move things
