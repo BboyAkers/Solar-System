@@ -1,0 +1,25 @@
+{
+  "name": "solar-system",
+  "version": "1.0.0",
+  "description": "A solar system built using Bablylon.js",
+  "source": "index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BboyAkers/Solar-System.git"
+  },
+  "author": "BboyAkers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BboyAkers/Solar-System/issues"
+  },
+  "homepage": "https://github.com/BboyAkers/Solar-System#readme",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  }
+}

@@ -16,52 +16,52 @@ window.addEventListener('DOMContentLoaded', () => {
     camera.attachControl(canvas);
 
     //light
-    const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
+    const light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 0.5;
     light.groundColor = new BABYLON.Color3(0, 0, 1);
 
-    scene.clearColor = new BABYLON.Color3(0,0,0);
+    scene.clearColor = new BABYLON.Color3(0, 0, 0);
 
 
     //Add materials
     const sunMaterial = new BABYLON.StandardMaterial('sunMaterial', scene);
-    sunMaterial.emissiveTexture = new BABYLON.Texture('assets/images/601x301_texture_sun.jpg', scene);
+    sunMaterial.emissiveTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/3b82ca9b-4ea8-4c2f-a9cb-24a01bf3b800/public', scene);
     sunMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
     sunMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const mercuryMaterial = new BABYLON.StandardMaterial('mercuryMat', scene);
-    mercuryMaterial.diffuseTexture = new BABYLON.Texture('assets/images/500x250_mercury.jpg', scene);
+    mercuryMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/331e6bd5-b750-49f0-0221-fd60bf8dff00/public', scene);
     mercuryMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const venusMaterial = new BABYLON.StandardMaterial('venusMat', scene);
-    venusMaterial.diffuseTexture = new BABYLON.Texture('assets/images/500x250_texture_venus_surface.jpg', scene);
+    venusMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/46a674e5-4831-451d-c021-e3897d69e600/public', scene);
     venusMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const earthMaterial = new BABYLON.StandardMaterial('earthMat', scene);
-    earthMaterial.diffuseTexture = new BABYLON.Texture('assets/images/601x301_texture_earth_surface.jpg', scene);
+    earthMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/7c2ab901-760a-40fe-f521-b74dc6b1e800/public', scene);
     earthMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const marsMaterial = new BABYLON.StandardMaterial('marsMat', scene);
-    marsMaterial.diffuseTexture = new BABYLON.Texture('assets/images/400x200_texture_mars.jpg', scene);
+    marsMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/a7819497-7848-46a0-4ada-01782272ee00/public', scene);
     marsMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const jupiterMaterial = new BABYLON.StandardMaterial('jupiterMat', scene);
-    jupiterMaterial.diffuseTexture = new BABYLON.Texture('assets/images/500x250_texture_jupiter.jpg', scene);
+    jupiterMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/c820bd42-a327-4a71-5904-0682dd7ce500/public', scene);
     jupiterMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const saturnMaterial = new BABYLON.StandardMaterial('saturnMat', scene);
-    saturnMaterial.diffuseTexture = new BABYLON.Texture('assets/images/601x301_texture_saturn.jpg', scene);
+    saturnMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/189f9520-f9a2-44d1-2e4e-def20ec87400/public', scene);
     saturnMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const uranusMaterial = new BABYLON.StandardMaterial('uranusMat', scene);
-    uranusMaterial.diffuseTexture = new BABYLON.Texture('assets/images/400x200_texture_uranus.jpg', scene);
+    uranusMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/69275538-c24e-48c5-c594-b86d1bbf5c00/public', scene);
     uranusMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     const neptuneMaterial = new BABYLON.StandardMaterial('neptuneMat', scene);
-    neptuneMaterial.diffuseTexture = new BABYLON.Texture('assets/images/400x200_texture_neptune.jpg', scene);
+    neptuneMaterial.diffuseTexture = new BABYLON.Texture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/0425d80f-9729-4740-34e3-3b7edc7ad000/public', scene);
     neptuneMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
-    
+
     const sunLight = new BABYLON.PointLight('sunLight', BABYLON.Vector3.Zero(), scene);
     sunLight.intensity = 2;
 
@@ -169,11 +169,11 @@ window.addEventListener('DOMContentLoaded', () => {
     skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 
     //texture of 6 sides of the cube
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('assets/images/skybox', scene);
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('https://imagedelivery.net/nGYhisqu4x6SCDrz5V8Qxg/dcad501c-d635-4b6a-d81b-5c8239775800/public', scene);
     skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 
     //thing method allows you to animate / move things
-    scene.beforeRender = function() {
+    scene.beforeRender = function () {
         mercury.position.x = mercury.orbit.radius * Math.sin(mercury.orbit.angle);
         mercury.position.z = mercury.orbit.radius * Math.cos(mercury.orbit.angle);
         mercury.orbit.angle += mercury.orbit.speed;
@@ -221,7 +221,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // the canvas/window resize event handler
-    window.addEventListener('resize', function(){
+    window.addEventListener('resize', function () {
         engine.resize();
     });
 })
