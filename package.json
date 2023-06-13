@@ -4,7 +4,6 @@
   "description": "A solar system built using Bablylon.js",
   "source": "index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "main": "js/app.js",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
